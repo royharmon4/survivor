@@ -52,7 +52,7 @@ function App() {
     })
   }
 
-  function resetToRoy() {
+  function resetToDefault() {
     setRanking(defaultRanking)
     setSelectedId(defaultRanking[0])
     setStatus('Reset locally. Save to keep this ranking.')
@@ -117,7 +117,7 @@ function App() {
 
       <section className="toolbar">
         <button onClick={saveRanking} disabled={saving}>{saving ? 'Saving...' : 'Save my ranking'}</button>
-        <button className="ghost" onClick={resetToRoy}>Reset to Roy's board</button>
+        <button className="ghost" onClick={resetToDefault}>Reset to default ranking</button>
         <span>{status}</span>
       </section>
 
@@ -130,7 +130,7 @@ function App() {
                 <div className="rankNum">{index + 1}</div>
                 <div className="rankMain">
                   <strong>{castaway.name}</strong>
-                  <span>{castaway.tribe} · Roy rank #{castaway.royRank}</span>
+                  <span>{castaway.tribe} · Default rank #{castaway.royRank}</span>
                 </div>
                 <div className="rankActions">
                   <button aria-label={`Move ${castaway.name} up`} onClick={(event) => { event.stopPropagation(); move(castaway.id, -1) }}>↑</button>
